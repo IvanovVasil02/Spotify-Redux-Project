@@ -6,11 +6,13 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedElem } from "../redux/actions";
+import AlbumCard from "./AlbumCard";
 
 const ArtistPage = () => {
   let elementId = useParams();
   const dispatch = useDispatch();
   let elementData = useSelector((state) => state.songs.selectedElement);
+  let currentTrucksList = useSelector((state) => state.songs.currentTrucks);
   useEffect(() => {
     dispatch(setSelectedElem(elementId.id, "artist"));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,7 +48,12 @@ const ArtistPage = () => {
                   <h2 className='text-white font-weight-bold'>Tracks</h2>
                 </div>
                 <div className='pt-5 mb-5'>
-                  <Row className='apiLoaded'></Row>
+                  <Row className='apiLoaded '>
+                    {currentTrucksList &&
+                      currentTrucksList.map((truck) => (
+                        <AlbumCard key={"truck" + truck.id} element='artist' songInfo={truck} />
+                      ))}
+                  </Row>
                 </div>
               </Col>
             </Row>

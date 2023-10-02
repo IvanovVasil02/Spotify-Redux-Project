@@ -33,12 +33,12 @@ const AlbumPage = () => {
                   {elementData && (
                     <Col md={10} className='mb-5' id='trackList'>
                       {elementData.tracks.data.map((track) => (
-                        <div>
-                          <div className='py-3 trackHover'>
+                        <div key={"album" + track.id}>
+                          <div className='p-3 ps-0 trackHover'>
                             <a href='s' className='card-title  px-3' style={{ color: "white" }}>
                               {track.title}
                             </a>
-                            <small class='duration' style={{ color: "white" }}>
+                            <small className='duration' style={{ color: "white" }}>
                               {Math.floor(
                                 parseInt(track.duration) / 60 // setting the duration minutes
                               )}

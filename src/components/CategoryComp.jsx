@@ -9,7 +9,7 @@ const CategoryComp = ({ genre, categoryTitle, artists }) => {
   const songsArray = useSelector((state) => state.genre[genre]);
 
   useEffect(() => {
-    dispatch(getGenre(genre, artists));
+    songsArray.length < 4 && dispatch(getGenre(genre, artists));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

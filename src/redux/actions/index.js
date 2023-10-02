@@ -47,29 +47,10 @@ export const handleSearch = (searchQuery) => {
   };
 };
 
-const setCurrentTrucks = (id) => {
-  return async (dispatch) => {
-    const response = await fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id + "/top?limit=20");
-
-    if (response.ok) {
-      let result = await response.json(); // transforms the response to json
-      let data = result; // gets the songs info
-
-      dispatch({ type: GET_CURRENT_TRUCKS, payload: data });
-    } else {
-      console.log("error");
-    }
-  };
-};
-
 export const setSelectedElem = (id, type) => {
   return async (dispatch) => {
     try {
       let url = "";
-
-      if (type === "artist") {
-        setCurrentTrucks(id);
-      }
 
       type === "album"
         ? (url = "https://striveschool-api.herokuapp.com/api/deezer/album/")
@@ -82,6 +63,21 @@ export const setSelectedElem = (id, type) => {
         let data = result; // gets the songs info
 
         dispatch({ type: GET_SELECTED_ELEMENT, payload: data });
+
+        if (type === "artist") {
+          const response = await fetch(
+            "https://striveschool-api.herokuapp.com/api/deezer/artist/" + id + "/top?limit=20"
+          );
+
+          if (response.ok) {
+            let result = await response.json(); // transforms the response to json
+            let { data } = result; // gets the songs info
+
+            dispatch({ type: GET_CURRENT_TRUCKS, payload: data });
+          } else {
+            console.log("error");
+          }
+        }
       } else {
         console.log("error");
       }
