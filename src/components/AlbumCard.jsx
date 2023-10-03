@@ -1,7 +1,13 @@
 import { Button, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { BsHeart, BsSuitHeartFill } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { addToFavorites, removeFromFavorites } from "../redux/actions/favoriteActions";
 
 const AlbumCard = ({ songInfo, element }) => {
+  const dispatch = useDispatch();
+  const favoriteList = useSelector((state) => state.favoriteList.content);
+
   return element === "album" ? (
     <Col md={3} className='pt-5 text-center' id='img-container'>
       <img src={songInfo.cover_medium} className='card-img img-fluid' alt='Album' />
@@ -15,8 +21,23 @@ const AlbumCard = ({ songInfo, element }) => {
         <Button id='btnPlay' className='btn btn-success' type='button'>
           Play
         </Button>
+
+        <Button
+          variant='link'
+          className='ms-auto'
+          onClick={() => {
+            favoriteList.some((e) => e.id === songInfo.id)
+              ? dispatch(removeFromFavorites(songInfo.id))
+              : dispatch(addToFavorites(songInfo));
+          }}
+        >
+          {favoriteList.some((e) => e.id === songInfo.id) ? (
+            <BsSuitHeartFill className='fs-2 text-secondary' />
+          ) : (
+            <BsHeart className='fs-2 text-secondary' />
+          )}
+        </Button>
       </div>
-      `
     </Col>
   ) : element === "artist" ? (
     <Col xs='auto' className='text-center mb-5'>
