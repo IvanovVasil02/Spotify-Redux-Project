@@ -1,4 +1,4 @@
-import { GET_CURRENT_TRUCKS, GET_QUERY_SONGS, GET_SELECTED_ELEMENT } from "../actions";
+import { DELETE_QUERY_SONGS, GET_CURRENT_TRUCKS, GET_QUERY_SONGS, GET_SELECTED_ELEMENT } from "../actions";
 
 const mainState = {
   searchResults: [],
@@ -9,6 +9,11 @@ const mainState = {
 const mainReducer = (state = mainState, action) => {
   switch (action.type) {
     case GET_QUERY_SONGS:
+      return {
+        ...state,
+        searchResults: action.payload,
+      };
+    case DELETE_QUERY_SONGS:
       return {
         ...state,
         searchResults: action.payload,

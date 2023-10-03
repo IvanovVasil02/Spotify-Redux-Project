@@ -15,8 +15,9 @@ const ArtistPage = () => {
   let currentTrucksList = useSelector((state) => state.songs.currentTrucks);
   useEffect(() => {
     dispatch(setSelectedElem(elementId.id, "artist"));
+    console.log("dispatch effettuata ");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [elementId.id]);
+  }, [elementId]);
 
   return (
     <>

@@ -31,7 +31,7 @@ const AlbumCard = ({ songInfo, element }) => {
           "<br></br>
         </p>
       </Link>
-      <Link to={`/album_page/${songInfo.artist.id}`} className='nav-link text-white'>
+      <Link to={`/album_page/${songInfo.album.id}`} className='nav-link text-white'>
         <p>
           Album: "
           {
@@ -43,7 +43,7 @@ const AlbumCard = ({ songInfo, element }) => {
     </Col>
   ) : (
     <Col className='text-center'>
-      <Link to={`album_page/${songInfo.album.id}`}>
+      <Link to={`/album_page/${songInfo.album.id}`}>
         <img className='img-fluid' src={songInfo.album.cover_medium} alt='1' />
 
         <p className='mb-0'>
@@ -52,7 +52,7 @@ const AlbumCard = ({ songInfo, element }) => {
           <br></br>
         </p>
       </Link>
-      <Link to={`artist_page/${songInfo.artist.id}`}>
+      <Link to={`/artist_page/${songInfo.artist.id}`}>
         <p>Artist: {songInfo.artist.name}</p>
       </Link>
     </Col>

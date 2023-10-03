@@ -2,6 +2,7 @@ export const GET_ROCK_RESULT = "GET_ROCK_RESULT";
 export const GET_POP_RESULT = "GET_POP_RESULT";
 export const GET_HIPHOP_RESULT = "GET_HIPHOP_RESULT";
 export const GET_QUERY_SONGS = "GET_QUERY_SONGS";
+export const DELETE_QUERY_SONGS = "DELETE_QUERY_SONGS";
 export const GET_SELECTED_ELEMENT = "GET_SELECTED_ELEMENT";
 export const GET_CURRENT_TRUCKS = "GET_CURRENT_TRUCKS";
 export const getGenre = (genre, artistArray) => {
@@ -46,6 +47,7 @@ export const handleSearch = (searchQuery) => {
     }
   };
 };
+export const clearSearchQuery = () => ({ type: DELETE_QUERY_SONGS, payload: [] });
 
 export const setSelectedElem = (id, type) => {
   return async (dispatch) => {
@@ -60,9 +62,8 @@ export const setSelectedElem = (id, type) => {
 
       if (response.ok) {
         let result = await response.json(); // transforms the response to json
-        let data = result; // gets the songs info
 
-        dispatch({ type: GET_SELECTED_ELEMENT, payload: data });
+        dispatch({ type: GET_SELECTED_ELEMENT, payload: result });
 
         if (type === "artist") {
           const response = await fetch(

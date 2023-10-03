@@ -2,14 +2,15 @@ import { Button, Col, Nav } from "react-bootstrap";
 import { FaBookOpen, FaHome } from "react-icons/fa";
 import spotify_Logo from "../assets/logo/Spotify_Logo.png";
 import SearchForm from "./SearchForm";
+import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
     <Col xs={2}>
       <Nav className='navbar navbar-expand-md navbar-white bg-navbar fixed-left justify-content-between px-2'>
         <div className='nav-container'>
-          <a className='navbar-brand' href='index.html'>
+          <Link to={"/"}>
             <img src={spotify_Logo} alt='Spotify_Logo' width='120' height='30' className='my-2' />
-          </a>
+          </Link>
           <Button
             className='navbar-toggler'
             type='button'
@@ -25,10 +26,10 @@ const Sidebar = () => {
             <div className='navbar-nav'>
               <ul>
                 <li>
-                  <a className='nav-item nav-link' href='index.html'>
+                  <Link to={"/"} className='nav-link'>
                     <FaHome />
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a className='nav-item nav-link' href='s'>

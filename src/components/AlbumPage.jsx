@@ -12,11 +12,13 @@ const AlbumPage = () => {
   let elementId = useParams();
   const dispatch = useDispatch();
   let elementData = useSelector((state) => state.songs.selectedElement);
+
   useEffect(() => {
     dispatch(setSelectedElem(elementId.id, "album"));
+
+    console.log("dispatch efettuata");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [elementId.id]);
-
   return (
     <>
       <Container fluid>
@@ -25,12 +27,15 @@ const AlbumPage = () => {
 
           <Col xs={12} md={9} className='offset-md-3 mainPage'>
             <Topbar />
+
             <Row>
-              {elementData && <AlbumCard songInfo={elementData} element='album' />}
+              {elementData && elementData.id === parseInt(elementId.id) && (
+                <AlbumCard songInfo={elementData} element={"album"} />
+              )}
 
               <Col md={8} className='p-5'>
                 <Row>
-                  {elementData && (
+                  {elementData && elementData.id === parseInt(elementId.id) && (
                     <Col md={10} className='mb-5' id='trackList'>
                       {elementData.tracks.data.map((track) => (
                         <div key={"album" + track.id}>
