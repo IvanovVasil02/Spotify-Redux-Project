@@ -1,14 +1,28 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import mainReducer from "../reducers/mainReducer";
 import genreReducer from "../reducers/genreReducer";
 import favoritesReducer from "../reducers/favoriteReducer";
+import storage from "redux-persist/lib/storage";
+import persistReducer from "redux-persist/es/persistReducer";
+import persistStore from "redux-persist/es/persistStore";
+
+const persistConfig = {
+  key: "root",
+  storage: storage,
+  whitelist: ["favoriteList"],
+};
 
 const rootReducers = combineReducers({
-  songs: mainReducer,
+  main: mainReducer,
   genre: genreReducer,
   favoriteList: favoritesReducer,
 });
 
-const store = configureStore({ reducer: rootReducers });
+const persistReducers = persistReducer(persistConfig, rootReducers);
 
-export default store;
+export const store = configureStore({
+  reducer: persistReducers,
+  middleware: getDefaultMiddleware({ serializableCheck: false, immutableCheck: false }),
+});
+
+export const persistore = persistStore(store);

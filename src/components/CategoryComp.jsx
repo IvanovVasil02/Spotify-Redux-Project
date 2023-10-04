@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getGenre } from "../redux/actions";
+import { getGenre } from "../redux/actions/genreActions";
 import AlbumCard from "./AlbumCard";
 
 const CategoryComp = ({ genre, categoryTitle, artists }) => {

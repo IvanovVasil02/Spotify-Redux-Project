@@ -11,8 +11,8 @@ import AlbumCard from "./AlbumCard";
 const ArtistPage = () => {
   let elementId = useParams();
   const dispatch = useDispatch();
-  let elementData = useSelector((state) => state.songs.selectedElement);
-  let currentTrucksList = useSelector((state) => state.songs.currentTrucks);
+  let elementData = useSelector((state) => state.main.selectedElement);
+  let currentTrucksList = useSelector((state) => state.main.currentTrucks);
   useEffect(() => {
     dispatch(setSelectedElem(elementId.id, "artist"));
     console.log("dispatch effettuata ");

@@ -3,10 +3,16 @@ import { Col, Row } from "react-bootstrap";
 import Shuffle from "../assets/playerbuttons/Shuffle.png";
 import Previous from "../assets/playerbuttons/Previous.png";
 import Play from "../assets/playerbuttons/Play.png";
+import Pause from "../assets/playerbuttons/Pause.png";
 import Next from "../assets/playerbuttons/Next.png";
 import Repeat from "../assets/playerbuttons/Repeat.png";
+import { useDispatch, useSelector } from "react-redux";
+import { setPlayerOff, setPlayerOn } from "../redux/actions";
 
 const Player = () => {
+  const dispatch = useDispatch();
+  const isPlayerOn = useSelector((state) => state.main.isPlayerOn);
+
   return (
     <Row>
       <Col lg={10} className='offset-lg-2'>
@@ -23,10 +29,17 @@ const Player = () => {
                   <img src={Previous} alt='shuffle' />
                 </a>
               </Col>
-              <Col>
-                <a href='s'>
-                  <img src={Play} alt='shuffle' />
-                </a>
+              <Col className='d-flex align-items-end'>
+                {
+                  <img
+                    src={isPlayerOn ? Pause : Play}
+                    alt='shuffle'
+                    width={14}
+                    onClick={() => {
+                      isPlayerOn ? dispatch(setPlayerOff()) : dispatch(setPlayerOn());
+                    }}
+                  />
+                }
               </Col>
               <Col>
                 <a href='s'>

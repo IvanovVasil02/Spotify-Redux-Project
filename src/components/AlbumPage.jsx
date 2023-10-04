@@ -11,7 +11,7 @@ import { setSelectedElem } from "../redux/actions";
 const AlbumPage = () => {
   let elementId = useParams();
   const dispatch = useDispatch();
-  let elementData = useSelector((state) => state.songs.selectedElement);
+  let elementData = useSelector((state) => state.main.selectedElement);
 
   useEffect(() => {
     dispatch(setSelectedElem(elementId.id, "album"));

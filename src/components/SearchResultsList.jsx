@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import AlbumCard from "./AlbumCard";
 
 const SearchResultsList = () => {
-  const songs = useSelector((state) => state.songs.searchResults);
+  const songs = useSelector((state) => state.main.searchResults);
 
   return (
     songs.length !== 0 && (

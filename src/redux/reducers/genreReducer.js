@@ -1,4 +1,4 @@
-import { GET_HIPHOP_RESULT, GET_POP_RESULT, GET_ROCK_RESULT } from "../actions";
+import { GET_HIPHOP_RESULT, GET_POP_RESULT, GET_ROCK_RESULT } from "../actions/genreActions";
 
 const genreState = {
   rock: [],

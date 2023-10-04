@@ -171,6 +171,10 @@ ul {
   padding-top: 50px;
 }
 
+#hiphop {
+  margin-bottom: 100px;
+}
+
 .trackHover:hover {
   background-color: black;
   cursor: pointer;

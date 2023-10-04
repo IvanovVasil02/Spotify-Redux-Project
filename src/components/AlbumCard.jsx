@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { BsHeart, BsSuitHeartFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, removeFromFavorites } from "../redux/actions/favoriteActions";
+import { setPlayerOn } from "../redux/actions";
 
 const AlbumCard = ({ songInfo, element }) => {
   const dispatch = useDispatch();
@@ -18,7 +19,14 @@ const AlbumCard = ({ songInfo, element }) => {
         <p className='artist-name'>{songInfo.artist.name}</p>
       </div>
       <div className='mt-4 text-center'>
-        <Button id='btnPlay' className='btn btn-success' type='button'>
+        <Button
+          id='btnPlay'
+          className='btn btn-success'
+          type='button'
+          onClick={() => {
+            dispatch(setPlayerOn());
+          }}
+        >
           Play
         </Button>
 
