@@ -32,9 +32,9 @@ const Sidebar = () => {
                   </Link>
                 </li>
                 <li>
-                  <a className='nav-item nav-link' href='s'>
+                  <Link to={"/favorite_list/"} className='nav-link'>
                     <FaBookOpen /> Your Library
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <div className='input-group mt-3'>

@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AlbumPage from "./components/AlbumPage";
 import Home from "./components/Home";
 import ArtistPage from "./components/ArtistPage";
+import MyLibrary from "./components/MyLibrary";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/album_page/:id' element={<AlbumPage />} />
         <Route path='/artist_page/:id' element={<ArtistPage />} />
-        {/* <Route path='favoriteList' element={<FavoriteList />} /> */}
+        <Route path='/favorite_list/' element={<MyLibrary />} />
       </Routes>
     </BrowserRouter>
   );
