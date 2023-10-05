@@ -1,19 +1,21 @@
 import { Container, Row } from "react-bootstrap";
-import MainContainer from "./MainContainer";
 import Player from "./Player";
+import SearchForm from "./SearchForm";
 import Sidebar2 from "./Sidebar2";
 
-const Home = () => {
+const SearchPage = () => {
   return (
     <>
       <Container fluid>
-        <Row>
+        <Row className='flex-column-reverse'>
           <Sidebar2 />
-          <MainContainer />
+          <SearchForm />
         </Row>
       </Container>
+
       <Player />
     </>
   );
 };
-export default Home;
+
+export default SearchPage;

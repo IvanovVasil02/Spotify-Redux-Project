@@ -10,6 +10,7 @@ form input {
   outline: none
 }
 
+/* 
 /*SIDEBAR SECTION*/
 .navbar.fixed-left {
   position: fixed;
@@ -24,7 +25,7 @@ form input {
   z-index: 1200;
 }
 
-.navbar.fixed-left .navbar-collapse .navbar-nav a {
+*/ .navbar.fixed-left .navbar-collapse .navbar-nav a {
   color: rgb(145, 145, 145) !important;
   transition: 0.3s;
 }
@@ -82,11 +83,11 @@ ul {
   background-color: white;
 }
 
-@media screen and (max-width: 936px) {
+/* @media screen and (max-width: 936px) {
   #sidebar {
     display: none;
   }
-}
+} */
 
 /* BOTTOM PLAYER SECTION*/
 
@@ -234,4 +235,16 @@ ul {
 
 .mainPage img {
   width: 200px;
+}
+
+#sidebar2 {
+  height: 100vh;
+
+}
+
+@media screen and (max-width: 778px) {
+  #sidebar2 {
+    height: 50px;
+  }
+
 }

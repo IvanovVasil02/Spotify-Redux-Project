@@ -15,10 +15,10 @@ const CategoryComp = ({ genre, categoryTitle, artists }) => {
 
   return (
     <Row>
-      <Col xs={10}>
+      <Col xs={12}>
         <div id={genre}>
           <h2>{categoryTitle}</h2>
-          <Row className='row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3'>
+          <Row className='row-cols-2 row-cols-sm-3 row-cols-lg-3 row-cols-xl-4 imgLinks py-3'>
             {songsArray && songsArray.map((song, i) => <AlbumCard key={"song" + song._id + i} songInfo={song} />)}
           </Row>
         </div>

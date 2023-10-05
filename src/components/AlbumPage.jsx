@@ -1,12 +1,12 @@
 import { Col, Container, Row } from "react-bootstrap";
 import Player from "./Player";
-import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 import AlbumCard from "./AlbumCard";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedElem } from "../redux/actions";
+import Sidebar2 from "./Sidebar2";
 
 const AlbumPage = () => {
   let elementId = useParams();
@@ -23,7 +23,7 @@ const AlbumPage = () => {
     <>
       <Container fluid>
         <Row>
-          <Sidebar />
+          <Sidebar2 />
 
           <Col xs={12} md={9} className='offset-md-3 mainPage'>
             <Topbar />
@@ -36,7 +36,7 @@ const AlbumPage = () => {
               <Col md={8} className='p-5'>
                 <Row>
                   {elementData && elementData.id === parseInt(elementId.id) && (
-                    <Col md={10} className='mb-5' id='trackList'>
+                    <Col md={12} className='mb-5' id='trackList'>
                       {elementData.tracks.data.map((track) => (
                         <div key={"album" + track.id}>
                           <div className='p-3 ps-0 trackHover'>
@@ -63,9 +63,7 @@ const AlbumPage = () => {
           </Col>
         </Row>
       </Container>
-      <Container className='fixed-bottom bg-container pt-1' fluid>
-        <Player />
-      </Container>
+      <Player />
     </>
   );
 };
