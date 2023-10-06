@@ -7,11 +7,13 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedElem } from "../redux/actions";
 import Sidebar2 from "./Sidebar2";
+import { SetCurentTruck, setPlayerOn } from "../redux/actions/songInListen";
 
 const AlbumPage = () => {
   let elementId = useParams();
   const dispatch = useDispatch();
   let elementData = useSelector((state) => state.main.selectedElement);
+  const currentSong = useSelector((state) => state.currentSong.songInListen);
 
   useEffect(() => {
     dispatch(setSelectedElem(elementId.id, "album"));
@@ -25,24 +27,33 @@ const AlbumPage = () => {
         <Row>
           <Sidebar2 />
 
-          <Col xs={12} md={9} className='offset-md-3 mainPage'>
+          <Col xs={12} lg={10} className='offset-lg-2 mainPage'>
             <Topbar />
 
-            <Row>
+            <Row className='justify-content-center'>
               {elementData && elementData.id === parseInt(elementId.id) && (
                 <AlbumCard songInfo={elementData} element={"album"} />
               )}
 
-              <Col md={8} className='p-5'>
+              <Col md={8} className='pt-5 pe-md-5'>
                 <Row>
                   {elementData && elementData.id === parseInt(elementId.id) && (
                     <Col md={12} className='mb-5' id='trackList'>
                       {elementData.tracks.data.map((track) => (
-                        <div key={"album" + track.id}>
-                          <div className='p-3 ps-0 trackHover'>
-                            <a href='s' className='card-title  px-3' style={{ color: "white" }}>
-                              {track.title}
-                            </a>
+                        <div
+                          key={"album" + track.id}
+                          onClick={() => {
+                            dispatch(SetCurentTruck(track.title));
+                            dispatch(setPlayerOn());
+                          }}
+                        >
+                          <div
+                            className={`${
+                              currentSong && track.id === currentSong.id && "bg-dark"
+                            } p-3 trackHover text-white rounded-4`}
+                          >
+                            {track.title}
+
                             <small className='duration' style={{ color: "white" }}>
                               {Math.floor(
                                 parseInt(track.duration) / 60 // setting the duration minutes

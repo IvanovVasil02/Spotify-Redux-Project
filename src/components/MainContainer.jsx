@@ -9,7 +9,7 @@ const MainContainer = () => {
 
   let hipHopArtists = ["eminem", "snoopdogg", "lilwayne", "drake", "kanyewest"];
   return (
-    <Col xs={12} md={10} className='offset-md-2 mainPage'>
+    <Col xs={12} lg={10} className='offset-lg-2 mainPage'>
       <Topbar />
 
       <CategoryComp genre='rock' categoryTitle='Rock Classics' artists={rockArtists} />

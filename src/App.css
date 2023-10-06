@@ -177,7 +177,7 @@ ul {
 }
 
 .trackHover:hover {
-  background-color: black;
+
   cursor: pointer;
 }
 
@@ -239,10 +239,10 @@ ul {
 
 #sidebar2 {
   height: 100vh;
-
+  background-color: #000;
 }
 
-@media screen and (max-width: 778px) {
+@media screen and (max-width: 990px) {
   #sidebar2 {
     height: 50px;
   }

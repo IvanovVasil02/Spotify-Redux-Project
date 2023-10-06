@@ -48,14 +48,13 @@ const ArtistPage = () => {
                 <div className='mt-5 ms-3 text-center'>
                   <h2 className='text-white font-weight-bold'>Tracks</h2>
                 </div>
-                <div className='pt-5 mb-5'>
-                  <Row className='apiLoaded justify-content-center'>
-                    {currentTrucksList &&
-                      currentTrucksList.map((truck) => (
-                        <AlbumCard key={"truck" + truck.id} element='artist' songInfo={truck} />
-                      ))}
-                  </Row>
-                </div>
+
+                <Row className='apiLoaded justify-content-center row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-xl-5'>
+                  {currentTrucksList &&
+                    currentTrucksList.map((truck) => (
+                      <AlbumCard key={"truck" + truck.id} element='artist' songInfo={truck} />
+                    ))}
+                </Row>
               </Col>
             </Row>
           </Col>

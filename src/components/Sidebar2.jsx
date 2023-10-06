@@ -11,15 +11,15 @@ const Sidebar2 = () => {
   return (
     <Col
       xs={12}
-      md={2}
-      className='bg-dark d-flex d-md-block justify-content-center align-items-center fixed-bottom'
+      lg={2}
+      className='d-flex d-lg-block justify-content-center align-items-center fixed-bottom'
       id='sidebar2'
     >
-      <Link to={"/"} className='d-none d-md-block'>
+      <Link to={"/"} className='d-none d-lg-block'>
         <img src={spotify_Logo} alt='Spotify_Logo' width='120' height='30' className='my-2' />
       </Link>
 
-      <ul className='nav nav-pills flex-md-column justify-content-center justify-content-md-start'>
+      <ul className='nav nav-pills flex-lg-column justify-content-center justify-content-lg-start gap-5 gap-lg-0'>
         <li>
           <Link
             to={"/"}
@@ -29,17 +29,17 @@ const Sidebar2 = () => {
             }}
           >
             <FaHome />
-            <span className='d-none d-md-inline'>Home</span>
+            <span className='d-none d-lg-inline'>Home</span>
           </Link>
         </li>
         <li>
           <Link to={"/favorite_list/"} className='nav-link text-white'>
-            <FaBookOpen /> <span className='d-none d-md-inline'>Your Library</span>
+            <FaBookOpen /> <span className='d-none d-lg-inline'>Your Library</span>
           </Link>
         </li>
         <li>
           <Link to={"/search_page/"} className='nav-link text-white'>
-            <BsSearch /> <span className='d-none d-md-inline'>Search</span>
+            <BsSearch /> <span className='d-none d-lg-inline'>Search</span>
           </Link>
         </li>
       </ul>

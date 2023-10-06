@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { BsHeart, BsSuitHeartFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, removeFromFavorites } from "../redux/actions/favoriteActions";
-import { setPlayerOn } from "../redux/actions";
+import { SetCurentTruck, setPlayerOn } from "../redux/actions/songInListen";
 
 const AlbumCard = ({ songInfo, element }) => {
   const dispatch = useDispatch();
@@ -24,6 +24,7 @@ const AlbumCard = ({ songInfo, element }) => {
           className='btn btn-success'
           type='button'
           onClick={() => {
+            dispatch(SetCurentTruck(songInfo.tracks.data[0].title));
             dispatch(setPlayerOn());
           }}
         >
@@ -48,25 +49,30 @@ const AlbumCard = ({ songInfo, element }) => {
       </div>
     </Col>
   ) : element === "artist" ? (
-    <Col xs='auto' className='text-center mb-5'>
-      <Link to={`/artist_page/${songInfo.album.id}`} className='nav-link text-white'>
-        <img className='img-fluid' src={songInfo.album.cover_medium} alt='1' />
+    <Col className='text-center mb-5 text-white'>
+      {/* <Link to={`/artist_page/${songInfo.id}`} className='nav-link '> */}
+      <img
+        className='img-fluid'
+        src={songInfo.album.cover_medium}
+        alt='1'
+        onClick={() => {
+          dispatch(SetCurentTruck(songInfo.title));
+          dispatch(setPlayerOn());
+        }}
+      />
 
-        <p className='mb-0'>
-          Track: "
-          {
-            songInfo.title.length < 16 ? songInfo.title : songInfo.title.substring(0, 16) + "..." // setting the track title, if it's longer than 16 chars cuts the rest
-          }
-          "<br></br>
-        </p>
-      </Link>
+      <p className='mb-0'>
+        {
+          songInfo.title.length < 16 ? songInfo.title : songInfo.title.substring(0, 16) + "..." // setting the track title, if it's longer than 16 chars cuts the rest
+        }
+        <br></br>
+      </p>
+      {/* </Link> */}
       <Link to={`/album_page/${songInfo.album.id}`} className='nav-link text-white'>
         <p>
-          Album: "
           {
             songInfo.album.title.length < 16 ? songInfo.album.title : songInfo.album.title.substring(0, 16) + "..." // setting the track title, if it's longer than 16 chars cuts the rest
           }
-          "
         </p>
       </Link>
     </Col>

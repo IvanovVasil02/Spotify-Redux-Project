@@ -2,8 +2,6 @@ export const GET_QUERY_SONGS = "GET_QUERY_SONGS";
 export const DELETE_QUERY_SONGS = "DELETE_QUERY_SONGS";
 export const GET_SELECTED_ELEMENT = "GET_SELECTED_ELEMENT";
 export const GET_CURRENT_TRUCKS = "GET_CURRENT_TRUCKS";
-export const SET_PLAYER_ON = "SET_PLAYER_ON";
-export const SET_PLAYER_OFF = "SET_PLAYER_OFF";
 
 export const handleSearch = (searchQuery) => {
   return async (dispatch) => {
@@ -63,6 +61,3 @@ export const setSelectedElem = (id, type) => {
     }
   };
 };
-
-export const setPlayerOn = () => ({ type: SET_PLAYER_ON, payload: true });
-export const setPlayerOff = () => ({ type: SET_PLAYER_OFF, payload: false });
