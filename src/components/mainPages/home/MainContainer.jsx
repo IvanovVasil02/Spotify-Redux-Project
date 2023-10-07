@@ -1,6 +1,6 @@
 import { Col } from "react-bootstrap";
-import CategoryComp from "./CategoryComp";
-import Topbar from "./Topbar";
+import Topbar from "../../Topbar";
+import GenreCategory from "./GenreCategory";
 
 const MainContainer = () => {
   let rockArtists = ["queen", "u2", "thepolice", "eagles", "thedoors", "oasis", "thewho", "bonjovi"];
@@ -12,9 +12,9 @@ const MainContainer = () => {
     <Col xs={12} lg={10} className='offset-lg-2 mainPage'>
       <Topbar />
 
-      <CategoryComp genre='rock' categoryTitle='Rock Classics' artists={rockArtists} />
-      <CategoryComp genre='pop' categoryTitle='Pop' artists={popArtists} />
-      <CategoryComp genre='hiphop' categoryTitle='#HipHop' artists={hipHopArtists} />
+      <GenreCategory genre='rock' categoryTitle='Rock Classics' artists={rockArtists} />
+      <GenreCategory genre='pop' categoryTitle='Pop' artists={popArtists} />
+      <GenreCategory genre='hiphop' categoryTitle='#HipHop' artists={hipHopArtists} />
     </Col>
   );
 };

@@ -1,7 +1,7 @@
 import { Container, Row } from "react-bootstrap";
-import Player from "./Player";
+import Player from "../../Player";
 import SearchForm from "./SearchForm";
-import Sidebar2 from "./Sidebar2";
+import Sidebar2 from "../../Sidebar2";
 
 const SearchPage = () => {
   return (

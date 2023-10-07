@@ -3,7 +3,7 @@ import { DELETE_QUERY_SONGS, GET_CURRENT_TRUCKS, GET_QUERY_SONGS, GET_SELECTED_E
 const mainState = {
   searchResults: [],
   selectedElement: null,
-  currentTrucks: [],
+  currentTracks: [],
 };
 
 const mainReducer = (state = mainState, action) => {
@@ -27,7 +27,7 @@ const mainReducer = (state = mainState, action) => {
     case GET_CURRENT_TRUCKS:
       return {
         ...state,
-        currentTrucks: action.payload,
+        currentTracks: action.payload,
       };
 
     default:

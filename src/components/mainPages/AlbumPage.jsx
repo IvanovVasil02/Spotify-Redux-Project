@@ -1,18 +1,18 @@
 import { Col, Container, Row } from "react-bootstrap";
-import Player from "./Player";
-import Topbar from "./Topbar";
-import AlbumCard from "./AlbumCard";
+import Player from "../Player";
+import Topbar from "../Topbar";
+import AlbumCard from "../cards/AlbumCard";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSelectedElem } from "../redux/actions";
-import Sidebar2 from "./Sidebar2";
-import { SetCurentTruck, setPlayerOn } from "../redux/actions/songInListen";
+import { setSelectedElem } from "../../redux/actions";
+import Sidebar2 from "../Sidebar2";
+import { SetCurentTruck, setPlayerOn } from "../../redux/actions/songInListen";
 
 const AlbumPage = () => {
   let elementId = useParams();
   const dispatch = useDispatch();
-  let elementData = useSelector((state) => state.main.selectedElement);
+  let albumData = useSelector((state) => state.main.selectedElement);
   const currentSong = useSelector((state) => state.currentSong.songInListen);
 
   useEffect(() => {
@@ -30,16 +30,13 @@ const AlbumPage = () => {
           <Col xs={12} lg={10} className='offset-lg-2 mainPage'>
             <Topbar />
 
-            <Row className='justify-content-center'>
-              {elementData && elementData.id === parseInt(elementId.id) && (
-                <AlbumCard songInfo={elementData} element={"album"} />
-              )}
-
-              <Col md={8} className='pt-5 pe-md-5'>
+            <Row className='justify-content-center pt-3'>
+              {albumData && albumData.id === parseInt(elementId.id) && <AlbumCard albumData={albumData} />}
+              <Col md={8} className='pe-md-5'>
                 <Row>
-                  {elementData && elementData.id === parseInt(elementId.id) && (
+                  {albumData && albumData.id === parseInt(elementId.id) && (
                     <Col md={12} className='mb-5' id='trackList'>
-                      {elementData.tracks.data.map((track) => (
+                      {albumData.tracks.data.map((track) => (
                         <div
                           key={"album" + track.id}
                           onClick={() => {

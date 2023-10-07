@@ -2,11 +2,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AlbumPage from "./components/AlbumPage";
-import Home from "./components/Home";
-import ArtistPage from "./components/ArtistPage";
-import MyLibrary from "./components/MyLibrary";
-import SearchPage from "./components/SearchPage";
+import Home from "./components/mainPages/home/Home";
+import SearchPage from "./components/mainPages/searchPage/SearchPage";
+import AlbumPage from "./components/mainPages/AlbumPage";
+import ArtistPage from "./components/mainPages/ArtistPage";
+import MyLibrary from "./components/mainPages/libraryPage/MyLibrary";
 
 function App() {
   return (

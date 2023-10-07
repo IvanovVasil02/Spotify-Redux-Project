@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
-import { handleSearch } from "../redux/actions";
+import { handleSearch } from "../../../redux/actions";
 import { useDispatch } from "react-redux";
 import { BsArrowDownCircle, BsBell, BsPerson, BsSearch } from "react-icons/bs";
 import SearchResultsList from "./SearchResultsList";
