@@ -39,6 +39,8 @@ const Player = () => {
                 <Link to={`/artist_page/${songInfo.artist.id}`} className='nav-link text-white'>
                   <p className='mb-0'>{songInfo.artist.name}</p>
                 </Link>
+
+                <audio src={songInfo.preview} controls />
               </Col>
             </Row>
           </Col>
