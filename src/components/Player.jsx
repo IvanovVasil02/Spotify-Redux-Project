@@ -40,7 +40,7 @@ const Player = () => {
                   <p className='mb-0'>{songInfo.artist.name}</p>
                 </Link>
 
-                <audio src={songInfo.preview} controls />
+                {/* <audio src={songInfo.preview} controls /> */}
               </Col>
             </Row>
           </Col>

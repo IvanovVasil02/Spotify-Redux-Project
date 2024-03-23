@@ -3,6 +3,7 @@ import { BsHeart, BsSuitHeartFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, removeFromFavorites } from "../../redux/actions/favoriteActions";
 import { SetCurentTruck, setPlayerOn } from "../../redux/actions/songInListen";
+import { Link } from "react-router-dom";
 
 const AlbumCard = ({ albumData, btnOff }) => {
   const dispatch = useDispatch();
@@ -10,11 +11,17 @@ const AlbumCard = ({ albumData, btnOff }) => {
 
   return (
     <Col md={3} className='text-center' id='img-container'>
-      <img src={albumData.cover_medium} className='card-img img-fluid' alt='Album' />
+      <Link to={`/album_page/${albumData.id}`} className='text-decoration-none'>
+        <img src={albumData.cover_medium} className='card-img img-fluid' alt='Album' />
+      </Link>
       <div className={btnOff && "d-flex justify-content-center"}>
         <div className='mt-4 text-center'>
-          <p className='album-title'>{albumData.title}</p>
-          <p className='artist-name'>{albumData.artist.name}</p>
+          <Link to={`/album_page/${albumData.id}`} className='text-decoration-none'>
+            <p className='album-title'>{albumData.title}</p>
+          </Link>
+          <Link to={`/artist_page/${albumData.artist.id}`} className='text-decoration-none'>
+            <p className='artist-name'>{albumData.artist.name}</p>
+          </Link>
         </div>
         {btnOff && (
           <Button

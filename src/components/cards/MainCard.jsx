@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const MainCard = ({ dataCard }) => {
   return (
     <Col className='text-center'>
-      <Link to={`/album_page/${dataCard.album.id}`}>
+      <Link to={`/album_page/${dataCard.album.id}`} className='text-decoration-none'>
         <img className='img-fluid' src={dataCard.album.cover_medium} alt='1' />
 
         <p className='mb-0'>
@@ -13,7 +13,7 @@ const MainCard = ({ dataCard }) => {
           <br></br>
         </p>
       </Link>
-      <Link to={`/artist_page/${dataCard.artist.id}`}>
+      <Link to={`/artist_page/${dataCard.artist.id}`} className='text-decoration-none'>
         <p>Artist: {dataCard.artist.name}</p>
       </Link>
     </Col>

@@ -11,7 +11,7 @@ const TrackCard = ({ trackData }) => {
   return (
     <Col className='text-center text-white'>
       <img
-        className='img-fluid'
+        className='img-fluid trackHover'
         src={trackData.album.cover_medium}
         alt='1'
         onClick={() => {
